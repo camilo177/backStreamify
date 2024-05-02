@@ -9,11 +9,8 @@ class UpdateInfoView(APIView):
 
     def put(self, request, pk):
         try:
-            production = Production.objects.get(pk=pk)
+            production = Production.objects.filter(pk=pk).update(**request.data)
+            return Response(production, status=status.HTTP_200_OK)
         except Production.DoesNotExist:
             return Response(status=status.HTTP_404_NOT_FOUND)
-        serializer = ProductionSerializer(production, data=request.data)
-        if serializer.is_valid():
-            serializer.save()
-            return Response(serializer.data, status=status.HTTP_200_OK)
-        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+        
