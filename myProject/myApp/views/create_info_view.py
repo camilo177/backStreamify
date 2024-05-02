@@ -7,9 +7,8 @@ from myApp.models import Production
 from myApp.serializer import ProductionSerializer
 
 class CreateInfoView(APIView):
-    permission_classes = [permissions.IsAuthenticated]
 
-    def post(self, request):
+    def post(self, request, *args, **kwargs):
         data = request.data
         serializer = ProductionSerializer(data=data)
         if serializer.is_valid():
