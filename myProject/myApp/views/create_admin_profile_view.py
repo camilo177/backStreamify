@@ -1,8 +1,7 @@
-# views.py
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
-from django.contrib.auth.models import User
+from django.contrib.auth import get_user_model
 from myApp.models import PerfilAdministrador
 from django.db import IntegrityError
 
@@ -13,6 +12,8 @@ class CreateAdminProfileView(APIView):
 
         if not username or not password:
             return Response({"error": "Username and password are required"}, status=status.HTTP_400_BAD_REQUEST)
+
+        User = get_user_model()
 
         try:
             # Create a new user
