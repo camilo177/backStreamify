@@ -1,11 +1,11 @@
-from myApp.views import CreateInfoView
-from myApp.views import UpdateInfoView
-from myApp.views import ReadInfoView
-from myApp.views import DeleteInfoView
-from myApp.views import CreateAdminProfileView
-from myApp.views import WatchProductionView
-from django.urls import path
+from .views.watch_view import WatchProductionView
+from .views.create_info_view import CreateInfoView
+from .views.update_info_view import UpdateInfoView
+from .views.read_info_view import ReadInfoView
+from .views.delete_view import DeleteInfoView
+from .views.create_admin_profile_view import CreateAdminProfileView
 
+from django.urls import path
 
 urlpatterns = [
     path('createInfo', CreateInfoView.as_view()),

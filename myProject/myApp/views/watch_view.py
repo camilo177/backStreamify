@@ -6,7 +6,7 @@ from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
 
-class VerProductionView(APIView):
+class WatchProductionView(APIView):
     def get(self, request):
         productions = VerProduction.objects.all().order_by('-popularity')
         serializer = VerProductionSerializer(productions, many=True)

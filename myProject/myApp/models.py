@@ -1,5 +1,5 @@
-from django.contrib.auth.models import AbstractUser
 from django.db import models
+from django.conf import settings
 
 class Production(models.Model):
     title = models.CharField(max_length=100)
@@ -24,9 +24,6 @@ class VerProduction(models.Model):
     class Meta:
         ordering = ['-popularity']  
 
-class User(AbstractUser):
-    pass
-
 class Contenido(models.Model):
     TIPO_CHOICES = [
         ('P', 'Película'),
@@ -39,13 +36,13 @@ class Contenido(models.Model):
     duracion = models.IntegerField()
     fecha_lanzamiento = models.DateField()
     imagen = models.ImageField(upload_to='contenido/')
-    usuario = models.ForeignKey(User, on_delete=models.CASCADE)
+    usuario = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
 
     def __str__(self):
         return f"{self.titulo} ({self.tipo})"
     
 class PerfilAdministrador(models.Model):
-    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    user = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
 
     def __str__(self):
-        return self.user.username  # Corrected the reference to user.username
+        return self.user.username

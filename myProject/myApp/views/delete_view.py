@@ -7,7 +7,7 @@ class IsAdminUser(permissions.BasePermission):
     def has_permission(self, request, view):
         return request.user.is_authenticated and request.user.is_staff
 
-class EliminarContenidoView(APIView):
+class DeleteInfoView(APIView):
     permission_classes = [IsAdminUser]
 
     def delete(self, request, pk):
