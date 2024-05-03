@@ -14,6 +14,15 @@ class Production(models.Model):
     trailer = models.CharField(max_length=100)
     platform = models.CharField(max_length=100)
 
+class VerProduction(models.Model):
+    title = models.CharField(max_length=100)
+    description = models.TextField()
+    poster = models.ImageField(upload_to='images/')
+    genre = models.CharField(max_length=100)
+    popularity = models.FloatField(default=0) 
+
+     class Meta:
+        ordering = ['-popularity']  
 
     def __str__(self):
         return self.title
