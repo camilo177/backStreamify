@@ -6,7 +6,7 @@ class Production(models.Model):
     description = models.TextField()
     poster = models.ImageField(upload_to='images/')
     genre = models.CharField(max_length=100)
-    duration = models.IntegerField()
+    duration = models.CharField(max_length=100)
     director = models.CharField(max_length=100)
     country = models.CharField(max_length=100)
     cast = models.ImageField(upload_to='images/')

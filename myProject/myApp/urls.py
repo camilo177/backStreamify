@@ -9,7 +9,7 @@ from django.urls import path
 
 urlpatterns = [
     path('createInfo', CreateInfoView.as_view()),
-    path('updateInfo', UpdateInfoView.as_view()),
+    path('updateInfo/id=<int:pk>', UpdateInfoView.as_view()),
     path('readInfo/id=<int:pk>', ReadInfoView.as_view(), name='read_info'),
     path('deleteInfo/id=<int:pk>', DeleteInfoView.as_view(), name='delete_info'),
     path('createAdminProfile', CreateAdminProfileView.as_view()),
