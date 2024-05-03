@@ -10,7 +10,7 @@ from django.urls import path
 urlpatterns = [
     path('createInfo', CreateInfoView.as_view()),
     path('updateInfo', UpdateInfoView.as_view()),
-    path('readInfo', ReadInfoView.as_view()),
+    path('readInfo/id=<int:pk>', ReadInfoView.as_view(), name='read_info'),
     path('deleteInfo/<int:pk>', DeleteInfoView.as_view()),
     path('createAdminProfile', CreateAdminProfileView.as_view()),
     path('watchProduction', WatchProductionView.as_view())
