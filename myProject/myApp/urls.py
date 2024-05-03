@@ -11,7 +11,7 @@ urlpatterns = [
     path('createInfo', CreateInfoView.as_view()),
     path('updateInfo', UpdateInfoView.as_view()),
     path('readInfo/id=<int:pk>', ReadInfoView.as_view(), name='read_info'),
-    path('deleteInfo/<int:pk>', DeleteInfoView.as_view()),
+    path('deleteInfo/id=<int:pk>', DeleteInfoView.as_view(), name='delete_info'),
     path('createAdminProfile', CreateAdminProfileView.as_view()),
     path('watchProduction', WatchProductionView.as_view())
 ]
