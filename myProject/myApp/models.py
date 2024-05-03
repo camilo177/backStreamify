@@ -16,7 +16,6 @@ class Production(models.Model):
 
 class VerProduction(models.Model):
     title = models.CharField(max_length=100)
-    description = models.TextField()
     poster = models.ImageField(upload_to='images/')
     genre = models.CharField(max_length=100)
     popularity = models.FloatField(default=0) 
