@@ -5,7 +5,7 @@ from myApp.models import VerProduction
 from myApp.serializer import VerProductionSerializer
 
 class WatchProductionView(APIView):
-    def get(self, request, pk):
-        production = VerProduction.objects.get(id=pk)
-        serializer = VerProductionSerializer(production)
+    def get(self, request,  *args, **kwargs):
+        ver_productions = VerProduction.objects.all()
+        serializer = VerProductionSerializer(ver_productions, many=True)
         return Response(serializer.data, status=status.HTTP_200_OK)

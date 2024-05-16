@@ -74,15 +74,14 @@ WSGI_APPLICATION = 'myProject.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
-
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'streamify-database',  # Replace 'your_database_name' with the name of your PostgreSQL database
-        'USER': 'tnrhkhwwxv',  # Replace 'your_postgresql_username' with your PostgreSQL username
-        'PASSWORD': '6D2YZ3tlFgIvs$y$',  # Replace 'your_postgresql_password' with your PostgreSQL password
-        'HOST': 'streamify-server.postgres.database.azure.com',  # If your PostgreSQL server is running locally, use 'localhost', otherwise provide the host IP or domain name
-        'PORT': '5432',  # PostgreSQL default port is 5432. Change if your PostgreSQL server is configured differently
+        'NAME': 'railway',  # Replace 'your_database_name' with the name of your PostgreSQL database
+        'USER': 'postgres',  # Replace 'your_postgresql_username' with your PostgreSQL username
+        'PASSWORD': 'PpkxlgSIrNDvsPGFAPHBOXVshSComajI',  # Replace 'your_postgresql_password' with your PostgreSQL password
+        'HOST': 'viaduct.proxy.rlwy.net',  # If your PostgreSQL server is running locally, use 'localhost', otherwise provide the host IP or domain name
+        'PORT': '32963',  # PostgreSQL default port is 5432. Change if your PostgreSQL server is configured differently
     }
 }
 

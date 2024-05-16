@@ -8,10 +8,8 @@ from myApp.serializer import ProductionSerializer
 
 
 class ReadInfoView(APIView):
-    def get(self, request, pk):
-        try:
-            production = Production.objects.get(id=pk)
-            serializer = ProductionSerializer(production)
-            return Response(serializer.data, status=status.HTTP_200_OK)
-        except Production.DoesNotExist:
-            return Response(status=status.HTTP_404_NOT_FOUND)
+    def get(self, request, *args, **kwargs):
+        production = Production.objects.all()
+        serializer = ProductionSerializer(production, many=True)
+        return Response(serializer.data, status=status.HTTP_200_OK)
+              
