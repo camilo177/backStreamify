@@ -18,7 +18,6 @@ class VerProduction(models.Model):
     title = models.CharField(max_length=100)
     poster = models.ImageField(upload_to='images/')
     genre = models.CharField(max_length=100)
-    popularity = models.FloatField(default=0) 
 
     class Meta:
         ordering = ['-popularity']  

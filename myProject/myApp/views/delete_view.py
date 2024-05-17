@@ -11,6 +11,3 @@ class DeleteInfoView(APIView):
             return Response({"mensaje": "Contenido eliminado correctamente"}, status=status.HTTP_204_NO_CONTENT)
         except Production.DoesNotExist:
             return Response({"error": "El contenido no existe"}, status=status.HTTP_404_NOT_FOUND)
-        except:
-            # Handle other exceptions like database errors or server errors
-            return Response({"error": "Error interno del servidor"}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
