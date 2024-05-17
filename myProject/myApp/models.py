@@ -13,11 +13,6 @@ class Production(models.Model):
     release = models.DateField()
     trailer = models.CharField(max_length=100)
     platform = models.CharField(max_length=100)
-
-class VerProduction(models.Model):
-    title = models.CharField(max_length=100)
-    poster = models.ImageField(upload_to='images/')
-    genre = models.CharField(max_length=100)
     
 class PerfilAdministrador(models.Model):
     user = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
