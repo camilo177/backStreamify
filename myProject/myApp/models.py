@@ -18,9 +18,6 @@ class VerProduction(models.Model):
     title = models.CharField(max_length=100)
     poster = models.ImageField(upload_to='images/')
     genre = models.CharField(max_length=100)
-
-    class Meta:
-        ordering = ['-popularity']  
     
 class PerfilAdministrador(models.Model):
     user = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
