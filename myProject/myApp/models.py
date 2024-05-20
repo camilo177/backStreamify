@@ -2,21 +2,18 @@ from django.db import models
 from django.conf import settings
 
 class Production(models.Model):
-    id=models.AutoField(primary_key=True)
     title = models.CharField(max_length=100)
     description = models.TextField()
-    poster = models.ImageField(upload_to='images/')
+    poster = models.ImageField(upload_to='images/', blank=True, null=True)
     genre = models.CharField(max_length=100)
     duration = models.CharField(max_length=100)
     director = models.CharField(max_length=100)
     country = models.CharField(max_length=100)
-    cast = models.ImageField(upload_to='images/')
+    cast = models.CharField(max_length=100)
     release = models.DateField()
     trailer = models.CharField(max_length=100)
     platform = models.CharField(max_length=100)
     
 class PerfilAdministrador(models.Model):
-    user = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
-
-    def __str__(self):
-        return self.user.username
+    user = models.CharField(max_length=100)
+    password = models.CharField(max_length=100)
