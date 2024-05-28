@@ -11,5 +11,5 @@ urlpatterns = [
     path('updateInfo/id=<int:pk>', UpdateInfoView.as_view(), name='update_info'),
     path('readInfo', ReadInfoView.as_view(), name='read_info'),
     path('deleteInfo/id=<int:pk>', DeleteInfoView.as_view(), name='delete_info'),
-    path('createAdminProfile', CreateAdminProfileView.as_view()),
+    path('createAdminProfile/', CreateAdminProfileView.as_view(), name='create_admin_profile'),
 ]

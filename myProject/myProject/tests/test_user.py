@@ -1,25 +1,16 @@
-import json
-
 from django.test import TestCase
 from django.urls import reverse
-
+from django.contrib.auth.models import User
 from myApp.models import PerfilAdministrador
 
-class PerfilAdministrador(TestCase):
+class UserRegistrationTestCase(TestCase):
 
-    @classmethod
-    def setUpTestData(cls):
-        PerfilAdministrador.objects.create(
-            user = 'admin',
-            password = 'admin'
-        )
-
-    def test_create_admin(self):
-        response = self.client.post('/myApp/createAdminProfile', data={
-            'user': 'admin',
-            'password': 'admin'
+    def test_user_registration(self):
+        response = self.client.post(reverse('create_admin_profile'), data={
+            'username': 'newadmin',
+            'password': 'newadminpassword'
         })
 
-        self.assertIn(response.status_code, [200, 201])
-        filtered_user = PerfilAdministrador.objects.filter(user='admin').first()
-        self.assertEqual(filtered_user.password, 'admin')
+        self.assertEqual(response.status_code, 201)
+        self.assertTrue(User.objects.filter(username='newadmin').exists())
+        self.assertTrue(PerfilAdministrador.objects.filter(user__username='newadmin').exists())

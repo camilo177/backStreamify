@@ -1,5 +1,6 @@
 from django.db import models
 from django.conf import settings
+from django.contrib.auth.models import User
 
 class Production(models.Model):
     title = models.CharField(max_length=100)
@@ -14,6 +15,10 @@ class Production(models.Model):
     trailer = models.CharField(max_length=100)
     platform = models.CharField(max_length=100)
     
+
+
 class PerfilAdministrador(models.Model):
-    user = models.CharField(max_length=100)
-    password = models.CharField(max_length=100)
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+    
+    def __str__(self):
+        return self.user.username
