@@ -5,6 +5,8 @@ from .views.delete_info_view import DeleteInfoView
 from .views.create_admin_profile_view import CreateAdminProfileView
 
 from django.urls import path
+from django.conf import settings
+from django.conf.urls.static import static
 
 urlpatterns = [
     path('createInfo', CreateInfoView.as_view()),
@@ -13,3 +15,6 @@ urlpatterns = [
     path('deleteInfo/id=<int:pk>', DeleteInfoView.as_view(), name='delete_info'),
     path('createAdminProfile/', CreateAdminProfileView.as_view(), name='create_admin_profile'),
 ]
+
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

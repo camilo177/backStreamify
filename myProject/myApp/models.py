@@ -5,7 +5,7 @@ from django.contrib.auth.models import User
 class Production(models.Model):
     title = models.CharField(max_length=100)
     description = models.TextField()
-    poster = models.ImageField(upload_to='images/', blank=True, null=True)
+    poster = models.ImageField(upload_to='posters/', blank=True, null=True)
     genre = models.CharField(max_length=100)
     duration = models.CharField(max_length=100)
     director = models.CharField(max_length=100)
