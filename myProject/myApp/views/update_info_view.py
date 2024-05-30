@@ -3,6 +3,15 @@ from rest_framework.response import Response
 from rest_framework import status
 from myApp.models import Production
 from myApp.serializer import ProductionSerializer
+from django.shortcuts import get_object_or_404
+
+class GetInfoView(APIView):
+
+    def get(self, request, pk, *args, **kwargs):
+        production = get_object_or_404(Production, pk=pk)
+        serializer = ProductionSerializer(production)
+        return Response(serializer.data, status=status.HTTP_200_OK)
+
 
 class UpdateInfoView(APIView):
 
