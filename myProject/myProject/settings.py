@@ -12,7 +12,8 @@ SECRET_KEY = 'django-insecure-06nmgopzanw+dhbexs1jg3=tt8+*259z**+&if$l=m)1adge@u
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["streamifyweb.azurewebsites.net", "localhost", "127.0.0.1"]
+SESSION_COOKIE_SECURE = True
 
 # Application definition
 INSTALLED_APPS = [
@@ -64,11 +65,11 @@ WSGI_APPLICATION = 'myProject.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'railway',
-        'USER': 'postgres',
-        'PASSWORD': 'PpkxlgSIrNDvsPGFAPHBOXVshSComajI',
-        'HOST': 'viaduct.proxy.rlwy.net',
-        'PORT': '32963',
+        'NAME': 'streamify',
+        'USER': 'camilo',
+        'PASSWORD': 'Admin123',
+        'HOST': 'streamify.postgres.database.azure.com',
+        'PORT': '5432',
     }
 }
 
