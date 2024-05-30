@@ -4,6 +4,7 @@ from .views.read_info_view import ReadInfoView
 from .views.delete_info_view import DeleteInfoView
 from .views.create_admin_profile_view import CreateAdminProfileView
 from .views.update_info_view import GetInfoView
+
 from django.urls import path
 from django.conf import settings
 from django.conf.urls.static import static
