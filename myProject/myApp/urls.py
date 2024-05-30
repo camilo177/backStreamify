@@ -13,7 +13,7 @@ urlpatterns = [
     path('createInfo', CreateInfoView.as_view()),
     path('updateInfo/<int:pk>', UpdateInfoView.as_view(), name='update_info'),
     path('readInfo', ReadInfoView.as_view(), name='read_info'),
-    path('deleteInfo/id=<int:pk>', DeleteInfoView.as_view(), name='delete_info'),
+    path('deleteInfo/<int:pk>', DeleteInfoView.as_view(), name='delete_info'),
     path('getInfo/<int:pk>', GetInfoView.as_view(), name='get_info'),
     path('createAdminProfile/', CreateAdminProfileView.as_view(), name='create_admin_profile'),
 ]
