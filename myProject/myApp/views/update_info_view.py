@@ -11,7 +11,7 @@ class GetInfoView(APIView):
         production = get_object_or_404(Production, pk=pk)
         serializer = ProductionSerializer(production)
         return Response(serializer.data, status=status.HTTP_200_OK)
-
+    
 class UpdateInfoView(APIView):
 
     def put(self, request, pk):
