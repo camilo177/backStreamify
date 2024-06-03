@@ -2,11 +2,14 @@ import json
 from django.shortcuts import render
 from rest_framework.views import APIView
 from rest_framework.response import Response
-from rest_framework import status, permissions
+from rest_framework import status
 from django.contrib.auth.models import User
 from django.db import IntegrityError
+from django.views.decorators.csrf import csrf_exempt
+from django.utils.decorators import method_decorator
 from myApp.models import PerfilAdministrador
 
+@method_decorator(csrf_exempt, name='dispatch')
 class CreateAdminProfileView(APIView):
 
     def post(self, request, *args, **kwargs):

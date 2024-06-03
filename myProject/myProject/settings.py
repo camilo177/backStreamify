@@ -1,21 +1,16 @@
+# settings.py
 from pathlib import Path
 
-# Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
-
-# SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'django-insecure-06nmgopzanw+dhbexs1jg3=tt8+*259z**+&if$l=m)1adge@u'
 
-# SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
 ALLOWED_HOSTS = ["streamifyweb.azurewebsites.net", "localhost", "127.0.0.1"]
-SESSION_COOKIE_SECURE = True
 
-# Application definition
+SESSION_COOKIE_SECURE = False
+
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -61,7 +56,6 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'myProject.wsgi.application'
 
-# Database
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
@@ -73,7 +67,6 @@ DATABASES = {
     }
 }
 
-# Password validation
 AUTH_PASSWORD_VALIDATORS = [
     {
         'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
@@ -89,7 +82,6 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-# Internationalization
 LANGUAGE_CODE = 'en-us'
 
 TIME_ZONE = 'UTC'
@@ -98,15 +90,18 @@ USE_I18N = True
 
 USE_TZ = True
 
-# Static files (CSS, JavaScript, Images)
 STATIC_URL = 'static/'
 
-# Media files (uploads)
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'
 
-# Default primary key field type
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-# CORS settings
-CORS_ALLOW_ALL_ORIGINS = True
+CSRF_COOKIE_NAME = 'csrftoken'
+CSRF_COOKIE_HTTPONLY = True
+CSRF_COOKIE_SECURE = True
+SESSION_COOKIE_SECURE = True
+
+CSRF_TRUSTED_ORIGINS = [
+    'http://localhost:4200',  # Add your frontend URL here
+]
